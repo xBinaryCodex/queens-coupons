@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queen's Coupons</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fff0f5;
+      color: #333;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #c2185b;
+    }
+    .coupon {
+      border: 2px dashed #c2185b;
+      border-radius: 15px;
+      background-color: #fff;
+      padding: 1rem;
+      margin: 1rem auto;
+      max-width: 300px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+    .coupon h2 {
+      margin-top: 0;
+    }
+    .redeem-btn {
+      background-color: #c2185b;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .redeem-btn:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Queen's Coupons</h1>
+  <p>Tap to redeem your love coupons 💕</p>
+
+  <div class="coupon">
+    <h2>💆 Massage Night</h2>
+    <p>Redeem for a long, relaxing back massage</p>
+    <button class="redeem-btn" onclick="redeem(this)">Redeem</button>
+  </div>
+
+  <div class="coupon">
+    <h2>🧹 Clean House Day</h2>
+    <p>You relax — I clean everything</p>
+    <button class="redeem-btn" onclick="redeem(this)">Redeem</button>
+  </div>
+
+  <div class="coupon">
+    <h2>🍽️ Dinner of Choice</h2>
+    <p>I cook or order anything you want</p>
+    <button class="redeem-btn" onclick="redeem(this)">Redeem</button>
+  </div>
+
+  <div class="coupon">
+    <h2>💤 Nap Pass</h2>
+    <p>1 uninterrupted nap time</p>
+    <button class="redeem-btn" onclick="redeem(this)">Redeem</button>
+  </div>
+
+  <script>
+    function redeem(button) {
+      button.disabled = true;
+      button.innerText = "Redeemed";
+    }
+  </script>
+</body>
+</html>
