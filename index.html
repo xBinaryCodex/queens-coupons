@@ -45,35 +45,51 @@
   <h1>Queen's Coupons</h1>
   <p>Tap to redeem your love coupons 💕</p>
 
-  <div class="coupon">
+  <div class="coupon" data-id="massage">
     <h2>💆 Massage Night</h2>
     <p>Redeem for a long, relaxing back massage</p>
-    <button class="redeem-btn" onclick="redeem(this)">Redeem</button>
+    <button class="redeem-btn">Redeem</button>
   </div>
 
-  <div class="coupon">
+  <div class="coupon" data-id="clean">
     <h2>🧹 Clean House Day</h2>
     <p>You relax — I clean everything</p>
-    <button class="redeem-btn" onclick="redeem(this)">Redeem</button>
+    <button class="redeem-btn">Redeem</button>
   </div>
 
-  <div class="coupon">
+  <div class="coupon" data-id="dinner">
     <h2>🍽️ Dinner of Choice</h2>
     <p>I cook or order anything you want</p>
-    <button class="redeem-btn" onclick="redeem(this)">Redeem</button>
+    <button class="redeem-btn">Redeem</button>
   </div>
 
-  <div class="coupon">
+  <div class="coupon" data-id="nap">
     <h2>💤 Nap Pass</h2>
     <p>1 uninterrupted nap time</p>
-    <button class="redeem-btn" onclick="redeem(this)">Redeem</button>
+    <button class="redeem-btn">Redeem</button>
   </div>
 
   <script>
-    function redeem(button) {
-      button.disabled = true;
-      button.innerText = "Redeemed";
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.coupon').forEach(coupon => {
+        const id = coupon.getAttribute('data-id');
+        const button = coupon.querySelector('button');
+
+        // Check if already redeemed in localStorage
+        if (localStorage.getItem(id) === 'redeemed') {
+          button.disabled = true;
+          button.innerText = 'Redeemed';
+        }
+
+        // Add click listener
+        button.addEventListener('click', () => {
+          button.disabled = true;
+          button.innerText = 'Redeemed';
+          localStorage.setItem(id, 'redeemed');
+        });
+      });
+    });
   </script>
 </body>
 </html>
+
